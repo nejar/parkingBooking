@@ -168,10 +168,30 @@ a:hover{
 	margin-bottom: 45px;
 	padding-top: 10px;
 }
-
-input[type="text"], input[type="date"], input[type="password"] {
+input[type="text"], input[type="date"]{
     font-size: 0.9em;
-    color: #fff;
+    font-weight: 100;
+    width: 50%;
+    margin-bottom: 20px;
+    display: block;
+    border: none;
+    border-radius: 10px;
+    padding: 0.8em;
+    border: solid 1px rgba(255, 255, 255, 0.37);
+    -webkit-transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+    transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+    background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 96%, #fff 4%);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 96%, #fff 4%);
+    background-position: -800px 0;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background: darkgreen;
+    color: white;
+  font-family: 'Roboto Condensed', sans-serif;  
+}
+
+ input[type="password"] {
+    font-size: 0.9em;
     font-weight: 100;
     width: 94.5%;
     display: block;
@@ -187,7 +207,7 @@ input[type="text"], input[type="date"], input[type="password"] {
     background-size: 100%;
     background-repeat: no-repeat;
     background: darkgreen;
-    color: #f0f0f0;
+    color: white;
   font-family: 'Roboto Condensed', sans-serif;
 }
 .booking{
@@ -206,7 +226,7 @@ input[type="text"], input[type="date"], input[type="password"] {
 	padding:20px;
 }
 .button{
-    background-color: #4CAF50; /* Green */
+    background-color: blue; /* Green */
     border: none;
     color: white;
     padding: 8px 25px;
@@ -215,6 +235,10 @@ input[type="text"], input[type="date"], input[type="password"] {
     display: inline-block;
     font-size: 16px;
     border-radius: 5px;
+    margin-top: 15px;
+}
+.gap{
+    margin-top: 10px;
 }
 .bike-slots{
 	width: 50%;
