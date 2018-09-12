@@ -52,7 +52,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<input class="text email" type="text" name="firstName" placeholder="First Name" required="required">
 					<input class="text email" type="text" name="lastName" placeholder="Last Name" required="required">
 					<input class="text email" type="text" name="phone" placeholder="Phone Number" required="required">
-					<!-- <input class="text email" type="text" name="licenseNo" placeholder="License Number" required="required"> -->
+					<input class="text email" type="text" name="licenseNo" placeholder="License Number" required="required">
 					<input class="text email" type="email" name="email" id="email" placeholder="Email" required="required">
 					<span id="msgAjax"></span>
 					<input class="text" type="password" name="password" id="password" placeholder="Password" required="required">

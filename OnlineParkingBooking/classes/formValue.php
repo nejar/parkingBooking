@@ -22,7 +22,7 @@ if (isset($_POST['register'])) {
 	if (!($checkUser->num_rows>0)) {
 		
 			//$result = $curd->registerUser($_POST);
-			$result = $curd->register($firstName,$lastName,$email,$password,$phone,$role);
+			$result = $curd->register($firstName,$lastName,$email,$password,$licenseNo,$phone,$role);
 			//$result = $curd->RegisterFrom_sp($firstName,$lastName,$email,$password,$licenseNo,$phone,$role);
 
 			if ($result) {

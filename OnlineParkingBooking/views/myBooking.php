@@ -20,10 +20,11 @@ include_once'header.php';
 ?>
 <!-- main starts here -->
 <div class="main">
+	<div class="booking-wrapper">
 	<div class="mybooking-today">
 		<div >
 			<h2 class="badge badge-info">Today's Booking</h3>
-			<p>click to cancel booking</p>
+			<p>click to cancel booking if any</p>
 		</div>
 		
 		<?php
@@ -33,6 +34,10 @@ include_once'header.php';
 		<?php		}
 		?>
 	</div>
+
+	<div class="show-history-block">
+		
+
 	
 	<div class="show-history">
 		<a href="" class="badge badge-dark" id="show">My Booking History</a>
@@ -41,29 +46,54 @@ include_once'header.php';
 		<table class="table table-hover">
 			
 			<thead>
+				<tr>
 				<th>S.N</th>
 				<th>Parking Slot no.</th>
 				<th>Booking Date</th>
-				<th>Vehicle Number</th>
+				<th>Vehicle Number</th>					
+				</tr>
+
 			</thead>
 			<?php
-			if ($result) {
-			foreach ($result as  $value) {
+			if ($result->num_rows>0) {
+			
 			?>
 			<tbody>
+				<?php
+					foreach ($result as  $value) {
+				 ?>
+				<tr>
 				<td><?php echo $i; ?></td>
 				<td><?php echo $value['parkingSlot_id'] ?></td>
 				<td><?php echo $value['bookingDate'] ?></td>
-				<td><?php echo $value['vehicleNo'] ?></td>
+				<td><?php echo $value['vehicleNo'] ?></td>					
+				</tr>
+
 				<?php
 					$i++;
 							}
-						}
-				?>
+						?>
+							
+							
+
 			</tbody>
+			<?php  
+
+			}else{ ?>
+
+							<tr>
+								<td colspan="4">No Data Found</td>
+							</tr>
+			<?php }
+
+			?>
+			
 		</table>
 		
 	</div>
+		</div>
+	</div>
+
 </div>
 <!-- main ends here -->
 <?php

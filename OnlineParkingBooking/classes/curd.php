@@ -46,7 +46,7 @@ class curd extends dbConfig
 		$result = $this->conn->query($sql);
 		return $result;
 	}
-	function register($firstName,$lastName,$email,$password,$phone){
+	function register($firstName,$lastName,$email,$password,$licenseNo,$phone){
 	// $stmt = $this->conn->prepare("INSERT INTO `user` (`firstName`, `lastName`, `email`, `password`, `licenseNo`, `role_id`, `blackListPoint`, `emailConfirmed`, `verificationCode`) VALUES (?, ?, ?,?,?,?,?,?,?)");
 	// $stmt->bind_param("sssssiiis", $firstname, $lastname, $email,$password,'','1','','','');
 	// $result = $stmt->execute();
@@ -58,7 +58,7 @@ class curd extends dbConfig
 								// 	else{
 															// 		return true;
 								// 	}
-		$sql = "INSERT INTO `user` (`user_id`, `firstName`, `lastName`, `email`, `password`, `licenseNo`, `role_id`, `blackListPoint`, `emailConfirmed`, `verificationCode`) VALUES (NULL, '$firstName', '$lastName', '$email', '$password', '', '', '', '', '')";
+		$sql = "INSERT INTO `user` (`user_id`, `firstName`, `lastName`, `email`, `password`, `licenseNo`, `role_id`, `blackListPoint`, `emailConfirmed`, `verificationCode`) VALUES (NULL, '$firstName', '$lastName', '$email', '$password', '$licenseNo', '', '', '', '')";
 		$result = $this->conn->query($sql);
 		if ($result == false) {
 			return false;

@@ -318,8 +318,8 @@ input[type="text"], input[type="date"],input[type="password"]{
 
 .myBooking-history{
     display: none;
-    width: 50%;
-    float: right;
+    margin-top: 10px;
+
 }
  .show-history{
     font-family: lato;
@@ -339,7 +339,13 @@ font-family: lato;
 .myBooking-today p{
     padding: 0 0 5px;
 }
-
+.booking-wrapper{
+    overflow: hidden;
+}
+.show-history-block{
+    width: 50%;
+    float: right;
+}
 .footer{
     width: 100%;
     text-align: center;
