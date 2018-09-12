@@ -47,14 +47,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		
 		<div class="main-agileinfo">
 			<div class="agileits-top"> 
-				<form action="classes/formValue.php" method="post"> 
+				<form action="classes/formValue.php" method="post" onsubmit="return validate()"> 
+					<input type="hidden" name="role" value="1">
 					<input class="text email" type="text" name="firstName" placeholder="First Name" required="required">
 					<input class="text email" type="text" name="lastName" placeholder="Last Name" required="required">
 					<input class="text email" type="text" name="phone" placeholder="Phone Number" required="required">
+					<!-- <input class="text email" type="text" name="licenseNo" placeholder="License Number" required="required"> -->
 					<input class="text email" type="email" name="email" id="email" placeholder="Email" required="required">
 					<span id="msgAjax"></span>
-					<input class="text" type="password" name="password" placeholder="Password" required="required">
-					<input class="text w3lpass" type="password" name="confirmPassword" placeholder="Confirm Password" required="required">
+					<input class="text" type="password" name="password" id="password" placeholder="Password" required="required">
+					<input class="text w3lpass" type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required="required">
 					<div class="wthree-text">  
 						<label class="anim">
 							<input type="checkbox" class="checkbox" required="">
@@ -128,6 +130,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
   	});
   	
+
+  </script>
+
+  <script type="text/javascript">
+  		
+	function validate(){
+		if ($('#password').val() != $('#confirmPassword').val()) {
+			alert('confirm password do not match');
+			return false;
+		}else{
+			return true;
+		}
+	}
 
   </script>
 

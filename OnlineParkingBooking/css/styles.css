@@ -168,7 +168,7 @@ a:hover{
 	margin-bottom: 45px;
 	padding-top: 10px;
 }
-input[type="text"], input[type="date"]{
+input[type="text"], input[type="date"],input[type="password"]{
     font-size: 0.9em;
     font-weight: 100;
     width: 50%;
@@ -185,7 +185,7 @@ input[type="text"], input[type="date"]{
     background-position: -800px 0;
     background-size: 100%;
     background-repeat: no-repeat;
-    background: darkgreen;
+    background: gray;
     color: white;
   font-family: 'Roboto Condensed', sans-serif;  
 }
@@ -206,7 +206,7 @@ input[type="text"], input[type="date"]{
     background-position: -800px 0;
     background-size: 100%;
     background-repeat: no-repeat;
-    background: darkgreen;
+    background: gray;
     color: white;
   font-family: 'Roboto Condensed', sans-serif;
 }
@@ -235,7 +235,7 @@ input[type="text"], input[type="date"]{
     display: inline-block;
     font-size: 16px;
     border-radius: 5px;
-    margin-top: 15px;
+   /* margin-top: 15px;*/
 }
 .gap{
     margin-top: 10px;
@@ -259,7 +259,86 @@ input[type="text"], input[type="date"]{
     font-weight: 700;
     
 }
+.booked{
+    background-color:red;
+    border: none;
+    color: white;
+    padding: 8px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+     pointer-events: none;
 
+}
+.booked-cancel{
+    background-color:red;
+    border: none;
+    color: white;
+    padding: 8px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+
+}
+
+.profile-wrapper{
+    overflow: hidden;
+}
+.changePassword{
+    width: 50%;
+    float: right;
+}
+
+.formWrapper{
+    width: 50%;
+    float: left;
+}
+.changePass{
+    display: none;
+    width: 50%;
+    padding-top: 15px;
+}
+#oldPasswordAjax{
+    display: block;
+}
+#msg{
+    display: block;
+    font-size: 15px;
+    color: green;
+    font-family: lato;
+}
+
+#msg h3{
+    padding:0 0 10px;
+}
+
+.myBooking-history{
+    display: none;
+    width: 50%;
+    float: right;
+}
+ .show-history{
+    font-family: lato;
+    font-size: 25px;
+}
+
+.myBooking-today{
+    width: 50%;
+    float: left;
+    text-align: center;
+}
+.myBooking-today h2{
+margin: 0 0 20px;
+font-size: 25px;
+font-family: lato;
+}
+.myBooking-today p{
+    padding: 0 0 5px;
+}
 
 .footer{
     width: 100%;

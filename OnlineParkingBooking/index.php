@@ -60,7 +60,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						</label>   -->
 						<div class="clear"> </div>
 					</div>   
-					<input type="button" name="login" id="login" value="LOGIN">
+					<input type="submit" name="login" id="login" value="LOGIN">
 				</form>
 				<p>Don't have an Account? <a href="registration.php"> Register Now!</a></p>
 			</div>	 
@@ -162,7 +162,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
   						$("#login").on("click",function(){
   							//alert('okey');
   							//window.location.replace('views/home.php');
-  							location.href='views/home.php';
+  							//location.href='views/home.php';
   						})
   						
   					}else{

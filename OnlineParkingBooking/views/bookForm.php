@@ -1,38 +1,47 @@
 <?php
 include_once'header.php';
+include_once'../classes/curd.php';
+
+$curd = new curd();
+
+$parkingSlot_id = $_GET['id'];
+
+if (isset($_SESSION['email'])) {
+	$email = $_SESSION['email'];
+	$result = $curd->getUserId($email);
+
+	foreach ($result as  $value) {
+		$user_id = $value['user_id'];
+		//echo $id;
+	}
+
+	?>
+
+<?php
+}
+
+
 ?>
 <div class="booking">
-<!-- 	<div class="form-wrapper">
-		<form action="">
-			<table border="1">
-				<tr class="gap">
-					<th colspan="2"><label for="bookingDate">Booking Date</label></th>
-					<td><input type="Date" name="bookingDate"></td>
-				</tr>
-				<tr class="gap">
-					<th colspan="2"><label for="vehicleNo">Vehicle Number</label></th>
-					<td><input type="text" name="vehicleNo" placeholder="Enter Vehicle No."></td>
-				</tr>
-				<tr class="gap">
-					<th colspan="2"></th>
-					<td><input type="submit" class="button" name="submit"></td>
-				</tr>
-			</table>
+	<div class="booking-form">
+		
+		<form action="../classes/formValue.php" id="doit" method="post">
+			<input type="hidden" name="parkingSlot_id" value="<?php echo $parkingSlot_id; ?>">
+			<input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
+		    <label class="gap">
+		        <input type="hidden" name="bookingDate" value="<?php echo date("Y-m-d"); ?>">
+		        Booking Date
+		        <input type="text" id="datePicker"  value="<?php echo date("Y-m-d"); ?>"   disabled>
+		    </label>
+
+		    <label>
+		        Vehicle Number
+		        <input type="text" name="vehicleNo" placeholder="Enter Vehicle No." required="required" />
+		    </label>
+		    <input type="submit" class="button" name="book">
 		</form>
-	</div> -->
 
-<form action="doit" id="doit" method="post">
-    <label class="gap">
-        Booking Date
-        <input type="Date" name="bookingDate">
-    </label>
-
-    <label>
-        Vehicle Number
-        <input type="text" name="vehicleNo" placeholder="Enter Vehicle No." />
-    </label>
-    <input type="submit" class="button" name="submit">
-</form>
+	</div>
 
 </div>
 
@@ -40,3 +49,9 @@ include_once'header.php';
 <?php
 include_once'footer.php';
 ?>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+			document.getElementById('datePicker').value = moment().format("Y-m-d");
+	});
+</script>
