@@ -48,7 +48,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div class="main-agileinfo">
 			<div class="agileits-top"> 
 				<form action="classes/formValue.php" method="post" onsubmit="return validate()"> 
-					<input type="hidden" name="role" value="1">
+					<input type="hidden" name="role" value="2">
 					<input class="text email" type="text" name="firstName" placeholder="First Name" required="required">
 					<input class="text email" type="text" name="lastName" placeholder="Last Name" required="required">
 					<input class="text email" type="text" name="phone" placeholder="Phone Number" required="required">

@@ -1,5 +1,5 @@
 <?php
-include_once'../classes/curd.php';
+include_once'../classes/crud.php';
 include_once'header.php';
 //include_once'main.php';
 
@@ -8,9 +8,9 @@ include_once'header.php';
 
  
 
-	$curd = new curd();
-	$result = $curd->getParkingSlots();
-	$status = $curd->resetSlots();
+	$crud = new crud();
+	$result = $crud->getParkingSlots();
+	$status = $crud->resetSlots();
 // $bike = array();
 // $car = array();
 // $booked = array();

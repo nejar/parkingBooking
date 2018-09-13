@@ -1,14 +1,14 @@
 <?php
 include_once'header.php';
-include_once'../classes/curd.php';
+include_once'../classes/crud.php';
 
-$curd = new curd();
+$crud = new crud();
 
 $parkingSlot_id = $_GET['id'];
 
 if (isset($_SESSION['email'])) {
 	$email = $_SESSION['email'];
-	$result = $curd->getUserId($email);
+	$result = $crud->getUserId($email);
 
 	foreach ($result as  $value) {
 		$user_id = $value['user_id'];

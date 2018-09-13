@@ -1,11 +1,11 @@
 <?php
-require_once'classes/curd.php';
-$curd = new curd();
+require_once'classes/crud.php';
+$crud = new crud();
 // For email check
 if (isset($_POST['email'])) {
 	
 	$email = $_POST['email'];
-	$result = $curd->checkEmailAjax($email);
+	$result = $crud->checkEmailAjax($email);
 	$data = array();
 	if ($result) {
 		$data['status']=true;
@@ -23,7 +23,7 @@ if (isset($_POST['email'])) {
 if (isset($_POST['password'])) {
 	
 	$password = $_POST['password'];
-	$result = $curd->checkPasswordAjax($password);
+	$result = $crud->checkPasswordAjax($password);
 	$data = array();
 	if ($result) {
 		$data['status']=true;
@@ -38,7 +38,7 @@ if (isset($_POST['password'])) {
 	// for email check in registration
 	if (isset($_POST['emailRegister'])) {
 		$email = $_POST['emailRegister'];
-		$result = $curd->checkEmailAjax($email);
+		$result = $crud->checkEmailAjax($email);
 		$data = array();
 		if ($result) {
 			$data['status']=false;
@@ -55,7 +55,7 @@ if (isset($_POST['password'])) {
 		
 		$oldPassword = $_POST['passwordCheck'];
 		$email = $_POST['emailCheck'];
-		$result = $curd->checkOldPassword($oldPassword,$email);
+		$result = $crud->checkOldPassword($oldPassword,$email);
 		$data = array();
 		if ($result->num_rows>0) {
 			$data['status'] = true;

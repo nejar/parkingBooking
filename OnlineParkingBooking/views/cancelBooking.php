@@ -1,5 +1,5 @@
 <?php
-include_once'../classes/curd.php';
+include_once'../classes/crud.php';
 include_once'header.php';
 
 ?>

@@ -167,6 +167,8 @@ a:hover{
 .main{
 	margin-bottom: 45px;
 	padding-top: 10px;
+    overflow: hidden;
+    
 }
 input[type="text"], input[type="date"],input[type="password"]{
     font-size: 0.9em;
@@ -272,6 +274,17 @@ input[type="text"], input[type="date"],input[type="password"]{
      pointer-events: none;
 
 }
+.booked-admin{
+    background-color:red;
+    border: none;
+    color: white;
+    padding: 8px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+}
 .booked-cancel{
     background-color:red;
     border: none;
@@ -346,6 +359,36 @@ font-family: lato;
     width: 50%;
     float: right;
 }
+.title h1{
+    font-size: 30px;
+    font-family: lato;
+}
+.admin-side-bar{
+    position: fixed;
+    z-index: 1;
+    background: #111;
+    width: 225px;
+    /* height: calc(100% - 36px); */
+    bottom: 36px;
+    top: 125px;
+}
+.admin-side-bar .side-bar{
+    overflow-y: auto;
+    height: 100%;
+}
+
+.main-content{
+    float: right;
+    width: calc(100% - 225px);
+}
+.side-bar a{
+    padding:8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+}
+
 .footer{
     width: 100%;
     text-align: center;

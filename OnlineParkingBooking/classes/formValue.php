@@ -1,8 +1,8 @@
 <?php
 require_once'dbConfig.php';
-require_once'curd.php';
+require_once'crud.php';
 
-$curd = new curd();
+$crud = new crud();
 
 // for Register
 if (isset($_POST['register'])) {
@@ -14,16 +14,16 @@ if (isset($_POST['register'])) {
 	$phone = $_POST['phone'];
 	$licenseNo = $_POST['licenseNo'];
 
-	$checkUser = $curd->checkUser($email,$password);
+	$checkUser = $crud->checkUser($email,$password);
 	//print_r($checkUser);
 
 	//die();
 
 	if (!($checkUser->num_rows>0)) {
 		
-			//$result = $curd->registerUser($_POST);
-			$result = $curd->register($firstName,$lastName,$email,$password,$licenseNo,$phone,$role);
-			//$result = $curd->RegisterFrom_sp($firstName,$lastName,$email,$password,$licenseNo,$phone,$role);
+			//$result = $crud->registerUser($_POST);
+			$result = $crud->register($firstName,$lastName,$email,$password,$licenseNo,$phone,$role);
+			//$result = $crud->RegisterFrom_sp($firstName,$lastName,$email,$password,$licenseNo,$phone,$role);
 
 			if ($result) {
 				echo "Successfully Registered";
@@ -45,16 +45,27 @@ if (isset($_POST['register'])) {
 
 if (isset($_POST['login'])) {
 	
-	$result = $curd->checkUser($_POST['email'],$_POST['password']);
+	$result = $crud->checkUser($_POST['email'],$_POST['password']);
 //print_r($result);
 	if (mysqli_num_rows($result)<1) {
 		$msg = "Incorrect Email or password";
 		header("Location:../index.php?msg=".$msg);
 		
 	}else{
+		$role = $crud->checkRole($_POST['email']);
+		 $r = $role->fetch_assoc();                 // to fetch single value from array
+		// print_r($r['role_id']); 
+		if ($r['role_id']==2) {
 		session_start();
 		$_SESSION['email']=$_POST['email'];
-		header("Location:../views/home.php");
+		header("Location:../views/home.php");		// redirect to user page
+		}else{
+		session_start();
+		$_SESSION['email']=$_POST['email'];
+		//header("Location:../admin/home.php");
+		header("Location:../admin/adminHome.php");
+		}
+
 	}
 
 
@@ -68,7 +79,7 @@ if (isset($_POST['book'])) {
 	$parkingSlot_id = $_POST['parkingSlot_id'];
 	$user_id = $_POST['user_id'];
 
-	$result = $curd->insertBooking($date,$vehicleNo,$parkingSlot_id,$user_id);
+	$result = $crud->insertBooking($date,$vehicleNo,$parkingSlot_id,$user_id);
 	// print_r($result);
 
 	header("Location:../views/home.php");
@@ -85,7 +96,7 @@ if (isset($_POST['update'])) {
 	$email = $_POST['email'];
 
 
-	$result = $curd->updateUser($firstName,$lastName,$licenseNo,$email);
+	$result = $crud->updateUser($firstName,$lastName,$licenseNo,$email);
 
 	if ($result) {
 		header("Location:../views/myProfile.php");
@@ -101,7 +112,7 @@ if (isset($_POST['updatePassword'])) {
 
 	$msg = "Error in updating password";
 	$successMsg = "Successfully updated password";
-	$result = $curd->updatePassword($email,$newPassword);
+	$result = $crud->updatePassword($email,$newPassword);
 
 	if ($result) {
 		header("Location:../views/myProfile.php?msg=".$successMsg);
@@ -113,7 +124,7 @@ if (isset($_POST['updatePassword'])) {
 if (isset($_GET['id'])) {
 	$parkingSlot_id = $_GET['id'];
 
-	$result = $curd->updateParkingSlot($parkingSlot_id);
+	$result = $crud->updateParkingSlot($parkingSlot_id);
 
 
 	

@@ -1,12 +1,12 @@
 <?php
-include_once'../classes/curd.php';
+include_once'../classes/crud.php';
 include_once'header.php';
 //include_once'main.php';
-	$curd = new curd();
+	$crud = new crud();
 	if (isset($_SESSION['email'])) {
 		
 	
-	$result = $curd->getUserDetails($_SESSION['email']);
+	$result = $crud->getUserDetails($_SESSION['email']);
 	foreach ($result as  $value) {
 		
 	

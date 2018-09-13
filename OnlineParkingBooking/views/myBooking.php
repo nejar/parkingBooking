@@ -1,28 +1,28 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 <?php
-include_once'../classes/curd.php';
+include_once'../classes/crud.php';
 include_once'header.php';
-	$curd = new curd();
+	$crud = new crud();
 	if (isset($_SESSION['email'])) {
 		
 	
-	$user_id = $curd->getUserId($_SESSION['email']);
+	$user_id = $crud->getUserId($_SESSION['email']);
 	$userId;
 	foreach ($user_id as  $value) {
 		$userId = $value['user_id'];
 	}
 }
 	// for booking history
-	$result = $curd->getUserBooking($userId);
+	$result = $crud->getUserBooking($userId);
 	$i=1;
 	// for today's booking list
-		$result2 = $curd->getUserTodaysBooking($userId);
+		$result2 = $crud->getUserTodaysBooking($userId);
 ?>
 <!-- main starts here -->
 <div class="main">
 	<div class="booking-wrapper">
 	<div class="mybooking-today">
-		<div >
+		<div>
 			<h2 class="badge badge-info">Today's Booking</h3>
 			<p>click to cancel booking if any</p>
 		</div>
