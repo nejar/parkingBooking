@@ -28,6 +28,16 @@ class adminCRUD extends dbConfig
 		return $result;
 	}
 
+	// booking search by date
+
+	function searchData($dateFrom,$dateTo){
+		$sql = "SELECT * from `booking_info` where `bookingDate` between '".$dateFrom."' AND '".$dateTo."' ";
+		$result = $this->conn->query($sql);
+
+		// print_r($sql);
+		return $result;
+	}
+
 
 
 

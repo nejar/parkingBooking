@@ -33,7 +33,7 @@ session_start();
 						</div>
 						<div class="nav-right">
 							<ul>
-								<li><a href="../index.php">Log out</a></li>
+								<li><a href="../index.php">Logout</a></li>
 							</ul>
 						</div>
 						

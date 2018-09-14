@@ -131,6 +131,7 @@ a:hover{
     justify-content: space-between;
     align-items: center;
     background: darkgray;
+    padding:35px 0;
 }
 
 .logo{
@@ -165,10 +166,32 @@ a:hover{
 	margin-right: 5px;
 }
 .main{
-	margin-bottom: 45px;
+	/*margin-bottom: 45px;*/
 	padding-top: 10px;
     overflow: hidden;
     
+}
+.search{
+    padding-left: 15px;
+    width: 30%;
+    float: left;
+}
+.search input[type="date"]{
+    width:100%;
+}
+.search-result{
+    /*overflow-y: auto;*/
+    height: calc(100vh - 174px);
+    width: 70%;
+    float: right;
+    padding: 0 20px;
+    /* background: red; */
+    overflow: hidden;
+    display: none;
+}
+.table-wrapper{
+    height: 100%;
+    overflow-y: auto;
 }
 input[type="text"], input[type="date"],input[type="password"]{
     font-size: 0.9em;
@@ -361,7 +384,7 @@ font-family: lato;
 }
 .title h1{
     font-size: 30px;
-    font-family: lato;
+    /*font-family: lato;*/
 }
 .admin-side-bar{
     position: fixed;
@@ -370,7 +393,7 @@ font-family: lato;
     width: 225px;
     /* height: calc(100% - 36px); */
     bottom: 36px;
-    top: 125px;
+    top: 120px;
 }
 .admin-side-bar .side-bar{
     overflow-y: auto;
@@ -382,10 +405,10 @@ font-family: lato;
     width: calc(100% - 225px);
 }
 .side-bar a{
-    padding:8px 8px 8px 32px;
+    padding: 30px 8px 8px 32px;
     text-decoration: none;
-    font-size: 25px;
-    color: #818181;
+    font-size: 15px;
+    color: white;
     display: block;
 }
 

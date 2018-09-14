@@ -1,3 +1,5 @@
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 <?php
 session_start();
 //echo "welcom".$_SESSION['email'];
@@ -26,17 +28,19 @@ session_start();
 						<div class="title">
 							<h1>Admin Panel</h1>
 						</div>
-						<div class="nav">
-							<ul>
-								<li><a href="home.php">Today's Booking</a></li>
-								<li><a href="users.php">Users</a></li>
-								<li><a href="bookingHistory.php">Booking History</a></li>
-							</ul>
-							
-						</div>
+							<?php
+					if (isset($_SESSION['email'])) {
+					?>
+					<div class="heading" style="text-align: center;">
+						<h3 style="padding: 10px;"><?php echo "Welcome: ".$_SESSION['email']; ?></h3>
+					</div>
+					
+					<?php
+					}
+					?>
 						<div class="nav-right">
 							<ul>
-								<li><a href="../index.php">Log out</a></li>
+								<li><a href="../index.php">Logout</a></li>
 							</ul>
 						</div>
 						

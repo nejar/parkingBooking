@@ -1,4 +1,5 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 <?php
 include_once'../classes/crud.php';
 include_once'adminHeader.php';
@@ -15,16 +16,8 @@ include_once'adminHeader.php';
 		?>
 	</div>
 	<div class="main-content">
-							<?php
-					if (isset($_SESSION['email'])) {
-					?>
-					<div class="heading" style="text-align: center;">
-						<h3 style="padding: 10px;"><?php echo "Welcome: ".$_SESSION['email']; ?></h3>
-					</div>
-					
-					<?php
-					}
-					?>
+
+
 		<div class="slots-wrapper">
 			<div class="bike-slots">
 				<h2 class="slots">Bike Slots</h2>
