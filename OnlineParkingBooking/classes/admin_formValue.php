@@ -31,7 +31,40 @@ if (isset($_POST['dateFrom']) && isset($_POST['dateTo'])) {
 	foreach ($result as $value) {
 		$data[] =  $value;
 	}
-	//print_r($data);
+	// print_r($data);
 	echo json_encode($data);
 	exit();
+}
+
+// search email by ajax
+
+if (isset($_POST['emailSearch'])) {
+	$email = $_POST['emailSearch'];
+	$result = $crud->searchUserByEmail($email);
+
+	$data = array();
+
+	foreach ($result as $value) {
+		$data[] = $value;
+	}
+
+	echo json_encode($data);
+	exit();
+}
+
+
+if (isset($_POST['updateRate'])) {
+	$type = $_POST['type'];
+	$rate = $_POST['rate'];
+	$vehicleType_id = $_POST['vehicleType_id'];
+
+
+
+	$result = $crud->updateRate($type,$rate,$vehicleType_id);
+
+	if ($result) {
+		header("Location:../admin/rate.php");
+	}else{
+		die('error updating');
+	}
 }

@@ -7,7 +7,7 @@ $crud = new admincrud();
 
 $result = $crud->bookingHistory();
 
-$i = 1;
+
 
 ?>
 
@@ -37,25 +37,9 @@ $i = 1;
 			<div class="table-wrapper">
 	
 				
-<!-- 				<table class="table table-striped">
-					<thead>
-						<tr>
-							<th>S.N</th>
-							<th>Parking Slot no.</th>
-							<th>Booking Date</th>
-							<th>Vehicle Number</th>
-						</tr>
-					</thead>
+				<table class="table table-striped">
 
-					<tbody>
-						<tr>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td id="vehicleNo"></td>
-						</tr>
-					</tbody>
-				</table> -->
+				</table>
 
 			</div>
 		</div>
@@ -82,6 +66,16 @@ include_once'../views/footer.php';
 			var dateFromAjax = $('#dateFrom').val();
 			var dateToAjax = $('#dateTo').val();
 
+			if (dateFromAjax == "" || dateToAjax=="") {
+				alert('Empty fields');
+				return false;
+			}
+
+			if (dateFromAjax > dateToAjax) {
+				alert('select correct date');
+				return false;	
+			}
+
 			$.ajax({
 
 				url:'../classes/admin_formValue.php',
@@ -92,14 +86,51 @@ include_once'../views/footer.php';
 					dateTo:dateToAjax
 				},
 
-				success:function(response){
+				success:function(result){
+					$('table').html('');
+
+                                var tr;
+                                tr = $('<tr/>');
+                                tr.append("<th><font color='saddlebrown'>S.N</th>");
+                                tr.append("<th><font color='saddlebrown'>Booking Date</th>");
+                                tr.append("<th><font color='saddlebrown'>Parking Slot id </th>");
+                                tr.append("<th><font color='saddlebrown'>Vehicle number</th>");
+                                
+                               
+
+                                $('table').append(tr);
+
+                                if (result) {
+
+
+                                var counter = 1;
+                                var msg = "No Data Found";
+                                for (var i in result) {
+                                    tr = $('<tr/>');
+                                    tr.append("<td>" + counter + "</td>");
+                                    tr.append("<td>" + result[i].bookingDate + "</td>");
+                                    tr.append("<td>" + result[i].parkingSlot_id + "</td>");
+                                    tr.append("<td>" + result[i].vehicleNo + "</td>");
+                                   
+                                    
+
+                                    $('table').append(tr);
+                                    counter++;
+
+                                }
+                            }else{
+                            	tr = $('<tr/>');
+                            	tr.append("<td>"+msg+"</td>");
+                            	$('table').append(tr);
+                            }
 					
-						for (var i = response.length - 1; i >= 0; i--) {
-							 var trHTML = '';
-							 trHTML += '<tr><td><strong>' + response[i].user_id+'</strong></td><td><span class="label label-success">'+response[i].bookingDate +'</span></td><td>'+response[i].parkingSlots_id+'</td></tr>';
-							  $('#table-wrapper').html(trHTML); 
-							console.log(response[i].vehicleNo);
-						}
+					
+						// for (var i = response.length - 1; i >= 0; i--) {
+						// 	 var trHTML = '';
+						// 	 // trHTML += '<tr><td><strong>' + response[i].user_id+'</strong></td><td><span class="label label-success">'+response[i].bookingDate +'</span></td><td>'+response[i].parkingSlots_id+'</td></tr>';
+						// 	 //  $('#table-wrapper').html(trHTML); 
+						// 	console.log(response[i].vehicleNo);
+						// }
 				
 				}
 

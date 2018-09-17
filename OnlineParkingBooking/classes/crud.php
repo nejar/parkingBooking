@@ -192,4 +192,23 @@ class crud extends dbConfig
 	$result = $this->conn->query($sql);
 	return $result;
 	}
+
+	// get rate
+
+	function getBikeRate(){
+		$sql = "SELECT `rate` from `vehicle_type` where `type` = 'bike' ";
+		$result = $this->conn->query($sql);
+		return $result;
+	}
+
+	function getCarRate(){
+		$sql = "SELECT `rate` from `vehicle_type` where `type` = 'car' ";
+		$result = $this->conn->query($sql);
+		return $result;
+	}
+
+
+
+
+
 }

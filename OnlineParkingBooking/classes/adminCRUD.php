@@ -38,6 +38,51 @@ class adminCRUD extends dbConfig
 		return $result;
 	}
 
+	// search all user 
+
+	function searchUser(){
+		$sql = "SELECT * FROM `user` ";
+
+		$result = $this->conn->query($sql);
+		return $result;
+	}
+
+	// search user by email
+
+	function searchUserByEmail($email){
+		$sql = "SELECT * FROM `user` where `email` = '".$email."' ";
+
+		$result = $this->conn->query($sql);
+		return $result;
+	}
+
+	// get rates
+
+	function getRate(){
+		$sql = "SELECT * FROM `vehicle_type`";
+
+		$result = $this->conn->query($sql);
+		return $result;
+	}
+	//get rate by id of vehicle
+
+	function getRateById($id){
+		$sql = "SELECT * FROM `vehicle_type` where `vehicleType_id` ='".$id."' ";
+		$result = $this->conn->query($sql);
+		return $result;
+
+	}
+
+	// update rate
+
+	function updateRate($type,$rate,$vehicleType_id){
+		$sql = "UPDATE `vehicle_type` set `type` = '".$type."' ANd  `rate` = '".$rate."' where `vehicleType_id` = '".$vehicleType_id."' ";
+	
+		$result = $this->conn->query($sql);
+
+		return $result;
+	}
+
 
 
 

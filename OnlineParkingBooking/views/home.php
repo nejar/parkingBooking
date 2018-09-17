@@ -11,6 +11,10 @@ include_once'header.php';
 	$crud = new crud();
 	$result = $crud->getParkingSlots();
 	$status = $crud->resetSlots();
+	$bikeRate = $crud->getBikeRate();
+	$bike = $bikeRate->fetch_assoc();
+	$carRate = $crud->getCarRate();
+	$car = $carRate->fetch_assoc();
 // $bike = array();
 // $car = array();
 // $booked = array();
@@ -37,7 +41,7 @@ include_once'header.php';
 				<div class="slots-wrapper">
 
 					<div class="bike-slots">
-						<h2 class="slots">Bike Slots</h2>
+						<h2 class="slots">Bike Slots: <i class="badge badge-info"><?php echo $bike['rate']; ?>/ day</i></h2>
 					<?php
 					foreach ($result as $value) { 
 						if ($value['vehicleType_id']==1) {
@@ -60,7 +64,7 @@ include_once'header.php';
 					</div>
 
 					<div class="car-slots">
-						<h2 class="slots">Car Slots</h2>
+						<h2 class="slots">Car Slots: <i class="badge badge-info"><?php echo $car['rate']; ?>/ day</i></h2>
 						<?php 
 							foreach ($result as $value) { 
 								if ($value['vehicleType_id']==2) {

@@ -129,6 +129,6 @@ include_once'footer.php';
 </script>
 <script>
 	$(document).ready(function(){
-		$('#msg').hide(5000);
+		$('#msg').hide(1000);
 	});
 </script>
